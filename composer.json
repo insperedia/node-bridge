@@ -1,5 +1,5 @@
 {
-    "name": "nesk/rialto",
+    "name": "insperedia/node-bridge",
     "description": "Manage Node resources from PHP",
     "keywords": [
         "php",
