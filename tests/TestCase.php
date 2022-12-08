@@ -2,7 +2,7 @@
 
 namespace Nesk\Rialto\Tests;
 
-use Monolog\Logger;
+use Psr\Log;
 use ReflectionClass;
 use Psr\Log\LogLevel;
 use PHPUnit\Util\ErrorHandler;
@@ -66,7 +66,7 @@ class TestCase extends BaseTestCase
     }
 
     public function loggerMock($expectations) {
-        $loggerMock = $this->getMockBuilder(Logger::class)
+        $loggerMock = $this->getMockBuilder(Log::class)
             ->setConstructorArgs(['rialto'])
             ->setMethods(['log'])
             ->getMock();
@@ -89,7 +89,7 @@ class TestCase extends BaseTestCase
 
     public function isLogLevel(): Callback {
         $psrLogLevels = (new ReflectionClass(LogLevel::class))->getConstants();
-        $monologLevels = (new ReflectionClass(Logger::class))->getConstants();
+        $monologLevels = (new ReflectionClass(Log::class))->getConstants();
         $monologLevels = array_intersect_key($monologLevels, $psrLogLevels);
 
         return $this->callback(function ($level) use ($psrLogLevels, $monologLevels) {

@@ -24,8 +24,8 @@
         "symfony/process": "^3.3|^4.0|^5.0"
     },
     "require-dev": {
-        "monolog/monolog": "^1.23",
-        "phpunit/phpunit": "^6.5|^7.0"
+        "psr/log": "^3.0.0",
+        "phpunit/phpunit": "^9.5.26"
     },
     "suggest": {
         "ext-weakref": "Required to run all the tests"
